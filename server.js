@@ -7,7 +7,7 @@ var mongoose = require('mongoose');
 var socket = require('socket.io');
 var ChatRoom = require('./models/chatroom');
 
-mongoose.connect('mongodb://localhost/dschat');
+mongoose.connect('mongodb://heroku_81wrd7x4:cg2hqefado6o56duuif8hsrjv9@ds023463.mlab.com:23463/heroku_81wrd7x4');
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
