@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/css/bootstrap.css" />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/css/dashboard.css" />
+    <title>Dashboad</title>
+</head>
+<body>
+    <div class="container">
+        <% include partials/navbar %>
+        <h4 class="sub-header">Available chat rooms</h4>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Creator</th>
+                        <th># of current users</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for(var i=0; i < rooms.length; i++) { %>
+                        <tr>
+                            <td><a href="/chat/<%= rooms[i]._id %>"><%= rooms[i].room_name %></a></td>
+                            <td><%= rooms[i].description %></td>
+                            <td><%= rooms[i].created_by %></td>
+                            <td><%= rooms[i].users.length %></td>
+                        </tr>
+                    <% } %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

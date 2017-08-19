@@ -1,0 +1,43 @@
+<head>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+    <link rel="stylesheet" href="/css/bootstrap.css" />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/css/dashboard.css" />
+    <title>DS Chat</title>
+</head>
+<body>
+    <div class="container">
+        <% include partials/navbar %>
+        <div id="session_username" data-prodnumber="<%= username %>"></div>  
+        <div id="messageArea" class="row">
+            <div class="col-md-4" id="online_users">
+                <div class="well">
+                    <h3>Online Users</h3>
+                    <ul class="list-group" id="users">
+                    </ul>
+                </div>
+            </div>
+            <div id="mario-chat" class="col-md-8">
+                <h3 id="room-name"><%=room.room_name%></h3>
+                <div id="chat-window">
+                    <div id="output">
+                        <% for(var i = 0; i < room.history.length; i++) { %>
+                            <p><strong><%= room.history[i].username %>: </strong><%= room.history[i].message %></p>
+                        <% } %>
+                        <hr>       
+                    </div>
+                    <div id="feedback">
+                            
+                    </div>
+                </div>
+                <div class="input-group">
+                    <input id="message" type="text" placeholder="Message" class="form-control"></input>
+                    <span class="input-group-btn">
+                        <button id="send" class="btn btn-success" type="button">Send</button>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="/js/iochat.js"></script>
+</body>
